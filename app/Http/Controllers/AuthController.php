@@ -15,23 +15,24 @@ public function showLoginForm() {
 }
 
 public function login(Request $request) {
-    $user = User::where('email', $request->email)->first();
+    
+$validated = $request ->validate([
 
-    if ($user && $user->password === $request->password) {
-        session(['user_id' => $user->id]);
-        return redirect('/dashboard');
-    }
+   'email'=>['required',
+   'email',
+],
 
-    return back()->withErrors(['email' => 'Неверные данные']);
-}
+   'password'=>'required|min:4', 
+    
+]);
 
-public function logout() {
-    session()->forget('user_id');
-    return redirect('/login');
-}
+    User::create([
 
-public function tests(){
-
-return view('home');
+        'email' => $request -> email,
+        'password'=> $request -> password,
+        
+    ]);
+    
+return redirect()->back();
 }
 }
