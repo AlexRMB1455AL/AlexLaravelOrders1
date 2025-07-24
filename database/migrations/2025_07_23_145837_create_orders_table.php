@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            /////////////////////
+            ///////////////////////////////
             $table->id();
             $table->integer('provider_id');
             $table->integer('service_id');
             $table->string('total_time');
             $table->string('earnings');
             $table->string('status');
-            //////////////////////
+            ///////////////////////////////
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

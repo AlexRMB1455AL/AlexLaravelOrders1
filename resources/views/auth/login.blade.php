@@ -19,5 +19,15 @@
    
 </form>
 </div>
+<div class="container-lg"><div class="form-group">
+    <label for="service">Выберите сервис:</label>
+    <select name="service_id" id="service" class="form-control">
+        @foreach ($services as $service)
+            <option value="{{ $service->id }}">{{ $service->name }}</option>
+        @endforeach
+    </select>
+</div>
+
+</div>
 
 @endsection
