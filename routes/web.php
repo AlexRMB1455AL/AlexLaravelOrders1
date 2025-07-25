@@ -8,4 +8,4 @@ Route::get('/welcome', function () {
 });
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm']);
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
-Route::get('login', [AuthController::class, 'createlistEmail']);
+Route::get('login', [AuthController::class, 'getlistEmail']);

@@ -19,8 +19,7 @@ public function login(Request $request) {
 $validated = $request ->validate([
 
    'email'=>['required',
-   'email',
-],
+   'email',],
 
    'password'=>'required|min:4', 
     
@@ -34,9 +33,10 @@ $validated = $request ->validate([
     
     return redirect()->back();
 }
-public function createlistEmail(){
+public function getlistEmail(){
 
-$listEmails = User::find(2)->get();
+$listEmails = User::select('id','email')->get();
+// dd($listEmails);
 return view('auth.login', compact('listEmails'));
 
 }

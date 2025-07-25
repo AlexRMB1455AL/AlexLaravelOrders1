@@ -20,15 +20,23 @@
 </form>
 </div>
 <div class="container-lg"><div class="form-group">
+  <hr class="border border-primary border-3 opacity-50">
     <label for="email_list">Выберите контраганта:</label>
-    <select name="email_select" id="email_list" class="form-control">
+    <select name="email_select" id="email_list" class="form-control mb-3">
 
         @foreach ($listEmails as $listEmail)
             <option value="{{ $listEmail->id }}">{{ $listEmail->email }}</option>
         @endforeach
     </select>
+    <label for="id_list_order">Выберите номер заказа или создайте новый:</label>
+    <select name="id_select_order" id="id_list_order" class="form-control mb-3">
+
+        {{-- @foreach ($id_orders as $id_order)
+            <option value="{{ $id_order->id }}">{{ $id_order->email }}</option>
+        @endforeach --}}
+    </select>
     
-<hr class="border border-primary border-3 opacity-50">
+
 </div>
 <div class="container">
   <div class="row">
@@ -58,7 +66,7 @@
     <div class="mb-3">
       <label for="status" class="form-label">Status</label>
       <select class="form-select" id="status" name="status">
-        <option value="">Выберите статус</option>
+  
         <option value="created">created</option>
         <option value="payed">payed</option>
         <option value="started">started</option>
