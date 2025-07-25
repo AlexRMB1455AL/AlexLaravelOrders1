@@ -11,7 +11,7 @@
      </div> 
      <div class = "mb-3">
     <input type="password" class="form-control" name="password" placeholder="Пароль">
-     @error('password')
+    @error('password')
     <div class="text-danger">{{ $message }}</div>
     @enderror  
     </div>  
@@ -20,14 +20,65 @@
 </form>
 </div>
 <div class="container-lg"><div class="form-group">
-    <label for="service">Выберите сервис:</label>
-    <select name="service_id" id="service" class="form-control">
-        @foreach ($services as $service)
-            <option value="{{ $service->id }}">{{ $service->name }}</option>
+    <label for="email_list">Выберите контраганта:</label>
+    <select name="email_select" id="email_list" class="form-control">
+
+        @foreach ($listEmails as $listEmail)
+            <option value="{{ $listEmail->id }}">{{ $listEmail->email }}</option>
         @endforeach
     </select>
+    
+<hr class="border border-primary border-3 opacity-50">
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-6 bg-primary text-white p-3">
+      <div class="container mt-4">
+  <form>
+    <div class="mb-3">
+      <label for="provider_id" class="form-label">Provider ID</label>
+      <input type="number" class="form-control" id="provider_id" name="provider_id" placeholder="Введите provider_id">
+    </div>
 
+    <div class="mb-3">
+      <label for="service_id" class="form-label">Service ID</label>
+      <input type="number" class="form-control" id="service_id" name="service_id" placeholder="Введите service_id">
+    </div>
+
+    <div class="mb-3">
+      <label for="total_time" class="form-label">Total Time</label>
+      <input type="number" class="form-control" id="total_time" name="total_time" placeholder="Например: 8">
+    </div>
+
+    <div class="mb-3">
+      <label for="earnings" class="form-label">Earnings</label>
+      <input type="number" step="1" class="form-control" id="earnings" name="earnings" placeholder="Введите доход">
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" name="status">
+        <option value="">Выберите статус</option>
+        <option value="created">created</option>
+        <option value="payed">payed</option>
+        <option value="started">started</option>
+        <option value="finished">finished</option>
+        <option value="confirmed">confirmed</option>
+        <option value="closed">closed</option>
+        <option value="canceled">canceled</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </form>
+</div>
+        
+    </div>
+    <div class="col-6 bg-success text-white p-3">
+    </div>
+</div>
+</div>
+</div>
 </div>
 
 @endsection

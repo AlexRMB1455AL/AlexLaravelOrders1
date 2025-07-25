@@ -30,9 +30,16 @@ $validated = $request ->validate([
 
         'email' => $request -> email,
         'password'=> $request -> password,
-        
     ]);
     
-return redirect()->back();
+    return redirect()->back();
 }
+public function createlistEmail(){
+
+$listEmails = User::find(2)->get();
+return view('auth.login', compact('listEmails'));
+
+}
+    
+
 }
